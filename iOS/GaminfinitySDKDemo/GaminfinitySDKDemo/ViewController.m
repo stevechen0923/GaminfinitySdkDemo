@@ -60,7 +60,7 @@ NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid
             
             //call Gaminfinity SDK
             NSString *fbAccessToken = [FBSession activeSession].accessTokenData.accessToken;
-            [gaminfinitySdk getAccountId:self AccessToken:fbAccessToken ServerUrl:GAMINFINITY_SERVER_URL];
+            [gaminfinitySdk getAccountId:fbAccessToken ServerUrl:GAMINFINITY_SERVER_URL];
         }else if (state == FBSessionStateClosed || state == FBSessionStateClosedLoginFailed){
             NSLog(@"Session closed");
         }
@@ -109,7 +109,7 @@ NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid
 }
 
 - (IBAction)onInstantPlayButtonClick:(id)sender {
-    [gaminfinitySdk getAccountId:self AccessToken:nil ServerUrl:GAMINFINITY_SERVER_URL];
+    [gaminfinitySdk getAccountId:nil ServerUrl:GAMINFINITY_SERVER_URL];
 }
 
 - (void) onGetAccountId:(int)result AccountId:(NSString *)accountId{

@@ -15,6 +15,6 @@
 
 @interface GaminfinitySDK : NSObject
 @property (nonatomic, weak) id <EventHandler> delegate;
--(void) getAccountId:(id)delegate AccessToken:(NSString*)accessToken ServerUrl:(NSString*)serverurl;
+-(void) getAccountId:(NSString*)accessToken ServerUrl:(NSString*)serverurl;
 
 @end
