@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/instantLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:onClick="onInstantLoginButtonClick"
+        android:text="立即試玩" />
+
+    <Button
+        android:id="@+id/fbLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/instantLoginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:onClick="onFacebookLoginButtonClick"
+        android:text="FB帳號登入" />
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fbLoginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/fbLogoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewMessage"
+        android:layout_alignLeft="@+id/fbLoginButton"
+        android:onClick="onFacebookLogoutButtonClick"
+        android:text="FB帳號登出" />
+
+</RelativeLayout>
