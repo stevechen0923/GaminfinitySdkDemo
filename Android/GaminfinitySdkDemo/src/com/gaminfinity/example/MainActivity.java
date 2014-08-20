@@ -18,7 +18,8 @@ import com.facebook.Settings;
 public class MainActivity extends Activity implements ClientSDK.EventHandler{
 
 	private static final String LOG_TAG = "MainActivity";
-	private static final String GAMINFINITY_SERVER_URL = "http://219.87.94.74/sns/new_bind_uuid.php";
+	//private static final String GAMINFINITY_SERVER_URL = "http://219.87.94.74/sns/new_bind_uuid.php";
+	private static final String GAMINFINITY_SERVER_URL = "http://60.199.161.41/sns/new_bind_uuid.php";
 	private static final Boolean OPTION_HIDE_INSTANT_LOGIN_BUTTON_WHEN_FB_LOGIN = true;
 	public ClientSDK clientSdk;
 	private Session.StatusCallback statusCallback = new SessionStatusCallback();
@@ -48,15 +49,19 @@ public class MainActivity extends Activity implements ClientSDK.EventHandler{
 	}
 
 	@Override
-	public void onGetAccountId(int result, String  accountId) {
-		Log.d(LOG_TAG, "onGetAccountID(), result=" + result + ", AccountID=" + accountId);
-		if( result == 1){
-			Log.d(LOG_TAG, "取得帳號成功，帳號=" + accountId);
-			showTextMessage("取得帳號成功，帳號=" + accountId);
-		}else{
-			Log.d(LOG_TAG, "取得帳號失敗，錯誤代碼=" + result);
-			showTextMessage("取得帳號失敗，錯誤代碼=" + result);
-		}
+	public void onGetAccountId(final int result, final String accountId) {
+		this.runOnUiThread(new Runnable() {
+			public void run() {
+				Log.d(LOG_TAG, "onGetAccountID(), result=" + result + ", AccountID=" + accountId);
+				if( result == 1){
+					Log.d(LOG_TAG, "取得帳號成功，帳號=" + accountId);
+					showTextMessage("取得帳號成功，帳號=" + accountId);
+				}else{
+					Log.d(LOG_TAG, "取得帳號失敗，錯誤代碼=" + result);
+					showTextMessage("取得帳號失敗，錯誤代碼=" + result);
+				}
+			}
+		});
 	}
 
 	private void showTextMessage(String msg){

@@ -42,4 +42,14 @@
         android:onClick="onFacebookLogoutButtonClick"
         android:text="FB帳號登出" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="88dp"
+        android:text="Demo"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>
