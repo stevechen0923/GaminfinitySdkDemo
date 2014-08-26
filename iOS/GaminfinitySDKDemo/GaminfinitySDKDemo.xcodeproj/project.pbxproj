@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B597F7D319A5A0B2007239FA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B597F7D219A5A0B2007239FA /* FacebookSDK.framework */; };
+		B5C97A8A19AC725600515805 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C97A8919AC725600515805 /* AdSupport.framework */; };
 		B5E514861999E193009F68BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E514851999E193009F68BA /* Foundation.framework */; };
 		B5E514881999E193009F68BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E514871999E193009F68BA /* CoreGraphics.framework */; };
 		B5E5148A1999E193009F68BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E514891999E193009F68BA /* UIKit.framework */; };
@@ -21,7 +23,6 @@
 		B5E514A71999E193009F68BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E514891999E193009F68BA /* UIKit.framework */; };
 		B5E514AF1999E193009F68BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5E514AD1999E193009F68BA /* InfoPlist.strings */; };
 		B5E514B11999E193009F68BA /* GaminfinitySDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E514B01999E193009F68BA /* GaminfinitySDKDemoTests.m */; };
-		B5E514BB1999E434009F68BA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E514BA1999E434009F68BA /* FacebookSDK.framework */; };
 		B5E514C11999EDEE009F68BA /* libGaminfinitySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E514C01999EDEE009F68BA /* libGaminfinitySDK.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B597F7D219A5A0B2007239FA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		B5C97A8919AC725600515805 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B5E514821999E193009F68BA /* GaminfinitySDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaminfinitySDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5E514851999E193009F68BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5E514871999E193009F68BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,7 +58,6 @@
 		B5E514AC1999E193009F68BA /* GaminfinitySDKDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GaminfinitySDKDemoTests-Info.plist"; sourceTree = "<group>"; };
 		B5E514AE1999E193009F68BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B5E514B01999E193009F68BA /* GaminfinitySDKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GaminfinitySDKDemoTests.m; sourceTree = "<group>"; };
-		B5E514BA1999E434009F68BA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		B5E514BF1999EDEE009F68BA /* GaminfinitySDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaminfinitySDK.h; sourceTree = "<group>"; };
 		B5E514C01999EDEE009F68BA /* libGaminfinitySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGaminfinitySDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,9 +67,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C97A8A19AC725600515805 /* AdSupport.framework in Frameworks */,
+				B597F7D319A5A0B2007239FA /* FacebookSDK.framework in Frameworks */,
 				B5E514881999E193009F68BA /* CoreGraphics.framework in Frameworks */,
 				B5E514C11999EDEE009F68BA /* libGaminfinitySDK.a in Frameworks */,
-				B5E514BB1999E434009F68BA /* FacebookSDK.framework in Frameworks */,
 				B5E5148A1999E193009F68BA /* UIKit.framework in Frameworks */,
 				B5E514861999E193009F68BA /* Foundation.framework in Frameworks */,
 			);
@@ -108,7 +111,8 @@
 		B5E514841999E193009F68BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B5E514BA1999E434009F68BA /* FacebookSDK.framework */,
+				B5C97A8919AC725600515805 /* AdSupport.framework */,
+				B597F7D219A5A0B2007239FA /* FacebookSDK.framework */,
 				B5E514851999E193009F68BA /* Foundation.framework */,
 				B5E514871999E193009F68BA /* CoreGraphics.framework */,
 				B5E514891999E193009F68BA /* UIKit.framework */,
@@ -397,6 +401,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/funtown/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GaminfinitySDKDemo/GaminfinitySDKDemo-Prefix.pch";
@@ -418,6 +423,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/funtown/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GaminfinitySDKDemo/GaminfinitySDKDemo-Prefix.pch";

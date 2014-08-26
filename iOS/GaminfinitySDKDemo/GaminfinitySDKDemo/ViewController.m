@@ -8,8 +8,8 @@
 
 #import "ViewController.h"
 
-//NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid.php";
-NSString *const GAMINFINITY_SERVER_URL = @"http://60.199.161.41/sns/new_bind_uuid.php";
+NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid.php";
+//NSString *const GAMINFINITY_SERVER_URL = @"http://60.199.161.41/sns/new_bind_uuid.php";
 
 @interface ViewController ()
 
