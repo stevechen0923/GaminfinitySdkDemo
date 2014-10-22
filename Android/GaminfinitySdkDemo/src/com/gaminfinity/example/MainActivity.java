@@ -1,5 +1,7 @@
 package com.gaminfinity.example;
 
+import java.util.Arrays;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import com.gaminfinity.*;
 
 import com.facebook.LoggingBehavior;
 import com.facebook.Session;
+import com.facebook.SessionLoginBehavior;
 import com.facebook.SessionState;
 import com.facebook.Settings;
 public class MainActivity extends Activity implements ClientSDK.EventHandler{
@@ -54,11 +57,11 @@ public class MainActivity extends Activity implements ClientSDK.EventHandler{
 			public void run() {
 				Log.d(LOG_TAG, "onGetAccountID(), result=" + result + ", AccountID=" + accountId);
 				if( result == 1){
-					Log.d(LOG_TAG, "取得帳號成功，帳號=" + accountId);
-					showTextMessage("取得帳號成功，帳號=" + accountId);
+					Log.d(LOG_TAG, "Success. AccountId=" + accountId);
+					showTextMessage("Success. AccountId=" + accountId);
 				}else{
-					Log.d(LOG_TAG, "取得帳號失敗，錯誤代碼=" + result);
-					showTextMessage("取得帳號失敗，錯誤代碼=" + result);
+					Log.d(LOG_TAG, "Failed. Error Code=" + result);
+					showTextMessage("Failed. Error Code=" + result);
 				}
 			}
 		});
@@ -74,12 +77,12 @@ public class MainActivity extends Activity implements ClientSDK.EventHandler{
 	}
 	 
 	public void onFacebookLoginButtonClick(View v){
-		Session session = Session.getActiveSession();
-        if (!session.isOpened() && !session.isClosed()) {
-            session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
-        } else {
-            Session.openActiveSession(this, true, statusCallback);
-        }
+		Session session = new Session(this);
+    	Session.setActiveSession(session); 
+        Session.OpenRequest openRequest = new Session.OpenRequest(this);
+        openRequest.setPermissions(Arrays.asList("email", "public_profile", "user_friends")); //set up permissions if needed.
+    	openRequest.setLoginBehavior(SessionLoginBehavior.SUPPRESS_SSO);
+        session.openForRead(openRequest.setCallback(statusCallback));
 	}	
 	
 	public void onFacebookLogoutButtonClick(View v) {
