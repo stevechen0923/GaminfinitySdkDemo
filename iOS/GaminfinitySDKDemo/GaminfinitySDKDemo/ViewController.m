@@ -8,8 +8,8 @@
 
 #import "ViewController.h"
 
-NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid.php";
-//NSString *const GAMINFINITY_SERVER_URL = @"http://60.199.161.41/sns/new_bind_uuid.php";
+//NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid.php";
+NSString *const GAMINFINITY_SERVER_URL = @"https://ests-sdk.wartown.com.tw/sns/new_bind_uuid.php";
 
 @interface ViewController ()
 
@@ -31,7 +31,7 @@ NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid
     
     // check cache if FB already login
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded){
-        [FBSession openActiveSessionWithReadPermissions:@[@"public_profile"] allowLoginUI:NO
+        [FBSession openActiveSessionWithReadPermissions:nil allowLoginUI:NO
             completionHandler:
                 ^(FBSession *session, FBSessionState state, NSError *error){
                     [self sessionStateChanged:session state:state error:error];
@@ -72,10 +72,10 @@ NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid
 - (void) updateUI
 {
     if(FBSession.activeSession.state == FBSessionStateOpen){
-        [_FbButton setTitle:@"FB帳號登出" forState:UIControlStateNormal];
+        [_FbButton setTitle:@"FB Logout" forState:UIControlStateNormal];
     }
     else{
-        [_FbButton setTitle:@"FB帳號登入" forState:UIControlStateNormal];
+        [_FbButton setTitle:@"FB Login" forState:UIControlStateNormal];
          _TextView.text = [NSString stringWithFormat:@""];
     }
 }
@@ -101,11 +101,12 @@ NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid
         [self facebookLogout];
     }else{
         // FB login
-        [FBSession openActiveSessionWithReadPermissions:@[@"public_profile"] allowLoginUI:YES
-            completionHandler:
-                ^(FBSession *session, FBSessionState state, NSError *error) {
-                    [self sessionStateChanged:session state:state error:error];
-                }];
+        [FBSession setActiveSession:[[FBSession alloc] initWithPermissions:[NSArray arrayWithObjects:@"public_profile,user_friends,email", nil]]];
+        
+        [[FBSession activeSession] openWithBehavior:FBSessionLoginBehaviorForcingWebView completionHandler:
+         ^(FBSession *session,FBSessionState state,NSError *error){
+            [self sessionStateChanged:session state:state error:error];
+        }];    
     }
 }
 
@@ -116,9 +117,9 @@ NSString *const GAMINFINITY_SERVER_URL = @"http://219.87.94.74/sns/new_bind_uuid
 - (void) onGetAccountId:(int)result AccountId:(NSString *)accountId{
     NSLog(@"DemoApp=>Result=%d, AccountId=%@", result, accountId);
     if(result == 1 ){
-        _TextView.text = [NSString stringWithFormat:@"取得帳號成功，帳號=%@", accountId];
+        _TextView.text = [NSString stringWithFormat:@"Success, AccountId=%@", accountId];
     }else{
-        _TextView.text = [NSString stringWithFormat:@"取得帳號失敗，錯誤代碼=%d", result];
+        _TextView.text = [NSString stringWithFormat:@"Failed, ErrorCode=%d", result];
     }
 }
 
